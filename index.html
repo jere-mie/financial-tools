@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tools</title>
+    <meta name="description" content="Financial Tools">
+    <meta name="keywords" content="Financial Tools">
+    <link rel="icon" type="image/png" href="static/icon.png">
+    <script src="static/vendor/twind.cdn.js"></script>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+    <div id="app"></div>
+    <script type="module">
+        import { render, h } from './static/vendor/standalone-preact.esm.js';
+        import { App } from './static/components/App.js';
+
+        render(h(App), document.getElementById('app'));
+    </script>
+</body>
+
+</html>
