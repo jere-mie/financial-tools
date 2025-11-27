@@ -137,7 +137,7 @@ export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, asse
                             <span>Total Needs</span>
                             <span>${formatCurrency(results.spouse2.needs)}</span>
                         </div>
-                        <div class="flex justify-between text-gr    een-600">
+                        <div class="flex justify-between text-green-600">
                             <span>Existing Assets & Insurance</span>
                             <span>-${formatCurrency(results.spouse2.assets)}</span>
                         </div>
