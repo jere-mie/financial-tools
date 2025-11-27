@@ -3,15 +3,15 @@ import { html } from '../../vendor/standalone-preact.esm.js';
 const formatCurrency = (val) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
 
 export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, assets, results }) => html`
-    <div class="animate-fade-in print:animate-none">
-        <div class="bg-white p-8 print:p-4 rounded-xl shadow-lg border border-slate-200 print:shadow-none print:border-none print:p-0">
-            <div class="text-center border-b border-slate-200 pb-6 mb-8">
-                <h2 class="text-3xl font-bold text-slate-800 mb-2">Life Insurance Needs Analysis</h2>
-                <p class="text-slate-500">Prepared on ${new Date().toLocaleDateString()}</p>
+    <div class="animate-fade-in print:animate-none print:m-0 print:p-0">
+        <div class="bg-white p-8 print:p-0 rounded-xl shadow-lg border border-slate-200 print:shadow-none print:border-none print:rounded-none">
+            <div class="text-center border-b border-slate-200 pb-6 mb-8 print:pb-4 print:mb-4">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2 print:text-2xl">Life Insurance Needs Analysis</h2>
+                <p class="text-slate-500 print:text-sm">Prepared on ${new Date().toLocaleDateString()}</p>
             </div>
 
             <!-- Client Profile Section -->
-            <div class="mb-8 bg-slate-50 p-6 rounded-lg border border-slate-200 print:bg-transparent print:border print:border-slate-300 page-break-after">
+            <div class="mb-8 bg-slate-50 p-6 rounded-lg border border-slate-200 print:bg-transparent print:border print:border-slate-300 print:p-0 print:mb-0 page-break-after">
                 <h3 class="text-lg font-bold text-slate-800 mb-4 uppercase tracking-wide border-b border-slate-200 pb-2">Client Profile</h3>
                 
                 <div class="grid grid-cols-2 gap-8 mb-6">
@@ -137,7 +137,7 @@ export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, asse
                             <span>Total Needs</span>
                             <span>${formatCurrency(results.spouse2.needs)}</span>
                         </div>
-                        <div class="flex justify-between text-green-600">
+                        <div class="flex justify-between text-gr    een-600">
                             <span>Existing Assets & Insurance</span>
                             <span>-${formatCurrency(results.spouse2.assets)}</span>
                         </div>
@@ -153,9 +153,9 @@ export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, asse
                 `}
             </div>
 
-            <div class="mt-12 print:mt-2 print:mb-0 text-sm print:text-xs text-slate-500 text-center border-t border-slate-100 pt-6 print:pt-2">
-                <p class="font-semibold mb-1">Disclaimer for Ontario Residents:</p>
-                <p class="mb-0">This report is for illustrative purposes only and does not constitute financial advice. Results are estimates based on the information provided. Residents of Ontario should consult with a licensed life insurance advisor for a personalized needs analysis.</p>
+            <div class="mt-12 print:mt-4 print:mb-0 text-sm print:text-xs text-slate-500 text-center border-t border-slate-100 pt-6 print:pt-3 print:border-t-0">
+                <p class="font-semibold mb-1 print:mb-0.5">Disclaimer for Ontario Residents:</p>
+                <p class="mb-0 print:m-0">This report is for illustrative purposes only and does not constitute financial advice. Results are estimates based on the information provided. Residents of Ontario should consult with a licensed life insurance advisor for a personalized needs analysis.</p>
             </div>
         </div>
     </div>

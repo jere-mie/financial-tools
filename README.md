@@ -1,4 +1,4 @@
-# Life Insurance Calculator
+# Financial Tools
 
 A modern, **zero-build** web application for calculating life insurance needs using the DIME method and comprehensive household analysis. Built with Preact and HTM—no npm, no webpack, no transpilation.
 
@@ -6,8 +6,8 @@ A modern, **zero-build** web application for calculating life insurance needs us
 
 ## ✨ Features
 
-- 💰 **Quick Calc** - Single-page DIME method calculator (Debt + Income + Mortgage + Education)
-- 📊 **Thorough Calc** - Multi-step wizard for detailed household analysis with spouse scenarios
+- 💰 **Quick Life Insurance Needs Estimator** - Single-page DIME method calculator (Debt + Income + Mortgage + Education)
+- 📊 **Comprehensive Household Analysis** - Multi-step wizard for detailed household analysis with spouse scenarios
 - 🚀 **Zero Build** - No npm, no build step—just refresh and see changes
 - 📦 **Fully Vendored** - All dependencies included as static files
 - 🎯 **Modern Stack** - Preact + HTM for reactive components
@@ -21,8 +21,8 @@ A modern, **zero-build** web application for calculating life insurance needs us
 Clone and run locally:
 
 ```bash
-git clone https://github.com/jere-mie/life-insurance-calc.git
-cd life-insurance-calc
+git clone https://github.com/jere-mie/financial-tools.git
+cd financial-tools
 python3 -m http.server 8000
 # then open http://localhost:8000
 ```
@@ -80,7 +80,7 @@ Then open your browser to `http://localhost:8000`
 
 ## 📖 Using the Application
 
-### Quick Calc - DIME Method
+### Quick Life Insurance Needs Estimator
 Calculate life insurance needs in seconds using the industry-standard DIME method:
 - **Debt**: Outstanding credit cards, car loans, personal loans
 - **Income**: Annual salary × years of replacement needed
@@ -89,8 +89,8 @@ Calculate life insurance needs in seconds using the industry-standard DIME metho
 
 Results update in real-time as you adjust inputs.
 
-### Thorough Calc - Household Analysis
-A comprehensive 5-step wizard for detailed analysis:
+### Comprehensive Household Analysis
+A detailed 5-step wizard for thorough analysis:
 1. **Intro** - Choose single or joint household analysis
 2. **Personal** - Enter spouse information and income details
 3. **Liabilities** - Add mortgage, debts, and final expenses
@@ -142,13 +142,13 @@ Contributions are welcome! We're looking for:
 
 The calculators use industry-standard formulas:
 
-### DIME Method (Quick Calc)
+### DIME Method (Quick Estimator)
 ```
 Total Insurance Need = Debt + (Income × Years) + Mortgage + Education
 Gap = Total Insurance Need - (Savings + Existing Insurance)
 ```
 
-### Household Analysis (Thorough Calc)
+### Household Analysis (Comprehensive)
 For each spouse scenario:
 ```
 Total Liabilities = Mortgage + Debts + Final Expenses + Education Costs
@@ -201,8 +201,8 @@ A: Yes. It's a complete, self-contained web application with no external depende
 
 ## 🔗 Links
 
-- [Repository](https://github.com/jere-mie/life-insurance-calc)
-- [Issues](https://github.com/jere-mie/life-insurance-calc/issues)
+- [Repository](https://github.com/jere-mie/financial-tools)
+- [Issues](https://github.com/jere-mie/financial-tools/issues)
 - [Development Guide](.github/copilot-instructions.md)
 
 ---

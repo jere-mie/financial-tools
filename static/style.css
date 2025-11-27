@@ -1,0 +1,42 @@
+/* Print Styles */
+@media print {
+    /* Hide the navbar during print */
+    header {
+        display: none !important;
+    }
+
+    /* Remove default page margins */
+    @page {
+        margin: 0.5in;
+    }
+
+    /* Page break after client profile section */
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    /* Prevent orphaned content and widows */
+    body, html, main {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        width: auto !important;
+    }
+
+    /* Ensure content doesn't overflow */
+    div {
+        page-break-inside: avoid;
+    }
+
+    /* Optimize text for printing */
+    body, html {
+        background: white !important;
+        color: black;
+    }
+
+    /* Prevent extra spacing from causing blank pages */
+    main > * {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}

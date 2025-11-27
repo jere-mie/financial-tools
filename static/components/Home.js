@@ -19,9 +19,9 @@ export function Home() {
                     <div class="flex justify-center mb-6">
                         <span class="text-6xl">⚡</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Quick Calculator</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Quick Life Insurance Needs Estimator</h2>
                     <p class="text-gray-600 mb-6 flex-grow">
-                        A fast, simple estimate using the DIME method. Perfect for a quick check-up.
+                        Fast estimate using the DIME method. Perfect for a quick check-up.
                     </p>
                     <a 
                         class="inline-flex items-center justify-center px-8 py-3 bg-white text-indigo-600 font-semibold rounded-lg border-2 border-indigo-600 hover:bg-indigo-50 transition-all duration-200" 
@@ -37,9 +37,9 @@ export function Home() {
                     <div class="flex justify-center mb-6">
                         <span class="text-6xl">📊</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Comprehensive Analysis</h2>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Comprehensive Household Analysis</h2>
                     <p class="text-gray-600 mb-6 flex-grow">
-                        Detailed step-by-step wizard for singles or couples. Includes printable PDF report.
+                        Detailed step-by-step analysis for singles or couples. Includes printable PDF report.
                     </p>
                     <a 
                         class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold rounded-lg hover:from-indigo-600 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5" 

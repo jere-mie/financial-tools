@@ -21,7 +21,7 @@ export function App() {
 
     return html`
         <div class="min-h-screen">
-            <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg">
+            <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg print:hidden">
                 <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                     <a class="font-bold text-2xl tracking-tight hover:text-indigo-100 transition-colors" href="#/">
                         <span class="inline-block transform hover:scale-105 transition-transform">💼 Financial Tools</span>
@@ -39,16 +39,16 @@ export function App() {
 
                     <nav class="hidden md:flex space-x-2">
                         <a class="px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 font-medium" href="#/" onClick=${toggleMenu}>Home</a>
-                        <a class="px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 font-medium" href="#/life-insurance-calc" onClick=${toggleMenu}>Quick Calc</a>
-                        <a class="px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 font-medium" href="#/thorough-calc" onClick=${toggleMenu}>Thorough Calc</a>
+                        <a class="px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 font-medium" href="#/life-insurance-calc" onClick=${toggleMenu}>Quick Estimator</a>
+                        <a class="px-4 py-2 rounded-lg hover:bg-white/20 transition-all duration-200 font-medium" href="#/thorough-calc" onClick=${toggleMenu}>Household Analysis</a>
                     </nav>
                 </div>
 
                 <div class="md:hidden ${menuOpen ? 'block' : 'hidden'} px-4 pb-4 bg-black/10">
                     <div class="flex flex-col space-y-2">
                         <a class="block text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors font-medium" href="#/" onClick=${toggleMenu}>Home</a>
-                        <a class="block text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors font-medium" href="#/life-insurance-calc" onClick=${toggleMenu}>Quick Calc</a>
-                        <a class="block text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors font-medium" href="#/thorough-calc" onClick=${toggleMenu}>Thorough Calc</a>
+                        <a class="block text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors font-medium" href="#/life-insurance-calc" onClick=${toggleMenu}>Quick Estimator</a>
+                        <a class="block text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors font-medium" href="#/thorough-calc" onClick=${toggleMenu}>Household Analysis</a>
                     </div>
                 </div>
             </header>

@@ -3,10 +3,9 @@ import { html } from '../../vendor/standalone-preact.esm.js';
 export const IntroStep = ({ mode, setMode, nextStep }) => html`
     <div class="space-y-6 text-center animate-fade-in">
         <div class="text-6xl mb-4">👨‍👩‍👧‍👦</div>
-        <h2 class="text-2xl font-bold text-slate-800">Welcome to the Comprehensive Calculator</h2>
+        <h2 class="text-2xl font-bold text-slate-800">Comprehensive Household Insurance Analysis</h2>
         <p class="text-slate-600 max-w-lg mx-auto">
-            This tool will guide you through a detailed analysis of your life insurance needs. 
-            You can calculate for just yourself or for you and your partner.
+            Get a detailed analysis of your household's life insurance needs. Answer a few questions about your finances and family, and we'll calculate how much protection you need. 
         </p>
         
         <div class="grid grid-cols-2 gap-4 max-w-md mx-auto mt-8">

@@ -1,10 +1,10 @@
-# Copilot Instructions for Life Insurance Calculator
+# Copilot Instructions for Financial Tools
 
 ## Project Overview
 
 This is a **no-build, fully vendored** Preact+HTM financial tools SPA with two life insurance calculators:
-- **Quick Calc** (`LifeInsuranceCalculator.js`): Single-page DIME method calculator with real-time results
-- **Thorough Calc** (`ThoroughCalculator.js`): Multi-step wizard for single/joint household analysis with spouse scenarios
+- **Quick Life Insurance Needs Estimator** (`LifeInsuranceCalculator.js`): Single-page DIME method calculator with real-time results
+- **Comprehensive Household Analysis** (`ThoroughCalculator.js`): Multi-step wizard for single/joint household analysis with spouse scenarios
 
 ### Key Architecture Principles
 
@@ -54,7 +54,7 @@ To add a route:
 
 ## Calculator-Specific Patterns
 
-### Quick Calculator (`LifeInsuranceCalculator.js`)
+### Quick Life Insurance Needs Estimator (`LifeInsuranceCalculator.js`)
 - Single-page component with real-time calculation
 - Uses `useEffect` dependency array to recalculate whenever any input changes
 - Implements DIME method: Debt + Income Replacement + Mortgage + Education
@@ -63,7 +63,7 @@ To add a route:
 - Uses `Intl.NumberFormat` for currency formatting (always USD)
 - Includes inline Tooltip component for educational help icons
 
-### Thorough Calculator (`ThoroughCalculator.js`)
+### Comprehensive Household Analysis (`ThoroughCalculator.js`)
 - Multi-step wizard with 5 steps: Intro → Personal → Liabilities → Assets → Report
 - State management:
   - `step` tracks current step (0-4)

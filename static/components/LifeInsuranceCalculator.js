@@ -54,8 +54,8 @@ export function LifeInsuranceCalculator() {
     return html`
         <div class="max-w-5xl mx-auto p-6">
             <div class="text-center mb-10">
-                <h1 class="text-4xl font-extrabold text-slate-800 mb-4">Life Insurance Needs Calculator</h1>
-                <p class="text-xl text-slate-600">Calculate your coverage using the <span class="font-bold text-indigo-600">DIME</span> Method.</p>
+                <h1 class="text-4xl font-extrabold text-slate-800 mb-4">Quick Life Insurance Needs Estimator</h1>
+                <p class="text-xl text-slate-600">Calculate your coverage using the <span class="font-bold text-indigo-600">DIME</span> Method in under 2 minutes.</p>
             </div>
 
             <!-- Educational Section -->
