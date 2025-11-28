@@ -10,8 +10,8 @@ export function ThoroughCalculator() {
     const [mode, setMode] = useState('single'); // 'single' or 'joint'
 
     // State Data
-    const [spouse1, setSpouse1] = useState({ name: 'John Doe', income: 60000, years: 10, dob: '', email: '', phone: '' });
-    const [spouse2, setSpouse2] = useState({ name: 'Jane Doe', income: 50000, years: 10, dob: '', email: '', phone: '' });
+    const [spouse1, setSpouse1] = useState({ name: 'John Doe', income: 60000, years: 10, dob: '', email: '', phone: '', smoker: false });
+    const [spouse2, setSpouse2] = useState({ name: 'Jane Doe', income: 50000, years: 10, dob: '', email: '', phone: '', smoker: false });
 
     const [liabilities, setLiabilities] = useState({
         mortgage: 300000,
@@ -20,15 +20,13 @@ export function ThoroughCalculator() {
     });
 
     // Children State
-    const [children, setChildren] = useState([
-        { name: '', dob: '', cost: 60000 },
-        { name: '', dob: '', cost: 60000 }
-    ]);
+    // format for children: { name: '', dob: '', cost: 60000 }
+    const [children, setChildren] = useState([]);
 
     const [assets, setAssets] = useState({
-        savings: 50000,
-        existingInsurance1: 0, // Spouse 1
-        existingInsurance2: 0  // Spouse 2
+        cash: 20000,
+        investments: 30000,
+        policies: []
     });
 
     const [results, setResults] = useState(null);
@@ -39,9 +37,15 @@ export function ThoroughCalculator() {
 
         // Scenario 1: Spouse 1 passes away
         // Needs: Income Replacement for S1 + Liabilities
-        // Assets: Savings + S1's Existing Insurance
+        // Assets: Cash + Investments + S1's Existing Insurance
         const needs1 = (spouse1.income * spouse1.years) + totalLiabilities;
-        const assets1 = assets.savings + assets.existingInsurance1;
+        const totalSavings = assets.cash + assets.investments;
+
+        const insurance1 = assets.policies
+            .filter(p => p.owner === 'spouse1')
+            .reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
+
+        const assets1 = totalSavings + insurance1;
         const gap1 = Math.max(0, needs1 - assets1);
 
         // Scenario 2: Spouse 2 passes away (only if joint)
@@ -51,7 +55,12 @@ export function ThoroughCalculator() {
 
         if (mode === 'joint') {
             needs2 = (spouse2.income * spouse2.years) + totalLiabilities;
-            assets2 = assets.savings + assets.existingInsurance2;
+
+            const insurance2 = assets.policies
+                .filter(p => p.owner === 'spouse2')
+                .reduce((sum, p) => sum + (Number(p.amount) || 0), 0);
+
+            assets2 = totalSavings + insurance2;
             gap2 = Math.max(0, needs2 - assets2);
         }
 

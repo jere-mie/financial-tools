@@ -4,56 +4,65 @@ const formatCurrency = (val) => new Intl.NumberFormat('en-US', { style: 'currenc
 
 export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, assets, results }) => html`
     <div class="animate-fade-in print:animate-none print:m-0 print:p-0">
-        <div class="bg-white p-8 print:p-0 rounded-xl shadow-lg border border-slate-200 print:shadow-none print:border-none print:rounded-none">
-            <div class="text-center border-b border-slate-200 pb-6 mb-8 print:pb-4 print:mb-4">
-                <h2 class="text-3xl font-bold text-slate-800 mb-2 print:text-2xl">Life Insurance Needs Analysis</h2>
-                <p class="text-slate-500 print:text-sm">Prepared on ${new Date().toLocaleDateString()}</p>
+        <div class="bg-white p-8 print:p-2 rounded-xl shadow-lg border border-slate-200 print:shadow-none print:border-none print:rounded-none">
+            <div class="text-center border-b border-slate-200 print:border-none pb-6 mb-8 print:pb-1 print:mb-2">
+                <h2 class="text-3xl font-bold text-slate-800 mb-2 print:text-lg print:mb-1">Life Insurance Needs Analysis</h2>
+                <p class="text-slate-500 print:text-xs">Prepared on ${new Date().toLocaleDateString()}</p>
             </div>
 
             <!-- Client Profile Section -->
-            <div class="mb-8 bg-slate-50 p-6 rounded-lg border border-slate-200 print:bg-transparent print:border print:border-slate-300 print:p-0 print:mb-0 page-break-after">
-                <h3 class="text-lg font-bold text-slate-800 mb-4 uppercase tracking-wide border-b border-slate-200 pb-2">Client Profile</h3>
+            <div class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200 print:bg-white print:border-slate-300 print:p-3 print:mb-4">
+                <h3 class="text-base font-bold text-slate-800 mb-3 uppercase tracking-wide border-b border-slate-300 pb-2">Client Profile</h3>
                 
-                <div class="grid grid-cols-2 gap-8 mb-6">
+                <div class="grid ${mode === 'joint' ? 'md:grid-cols-2' : 'md:grid-cols-1'} gap-4 mb-3">
+                    <!-- Spouse 1 -->
                     <div>
-                        <h4 class="font-bold text-indigo-900 mb-2">${spouse1.name}</h4>
-                        <div class="text-sm text-slate-600 space-y-1">
-                            <p><span class="font-medium">DOB:</span> ${spouse1.dob || 'Not provided'}</p>
-                            <p><span class="font-medium">Email:</span> ${spouse1.email || 'Not provided'}</p>
-                            <p><span class="font-medium">Phone:</span> ${spouse1.phone || 'Not provided'}</p>
-                            <p><span class="font-medium">Income:</span> ${formatCurrency(spouse1.income)}</p>
+                        <h4 class="font-bold text-indigo-900 mb-2 text-sm">${spouse1.name}</h4>
+                        <div class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                            <div><span class="text-slate-500">DOB:</span> <span class="font-medium">${spouse1.dob || 'Not provided'}</span></div>
+                            <div><span class="text-slate-500">Smoker:</span> <span class="font-medium ${spouse1.smoker ? 'text-red-600' : 'text-green-600'}">${spouse1.smoker ? 'Yes' : 'No'}</span></div>
+                            <div><span class="text-slate-500">Email:</span> <span class="font-medium truncate">${spouse1.email || 'Not provided'}</span></div>
+                            <div><span class="text-slate-500">Phone:</span> <span class="font-medium">${spouse1.phone || 'Not provided'}</span></div>
+                            <div class="col-span-2 pt-1 border-t border-slate-200 mt-1">
+                                <span class="text-slate-500">Income:</span> <span class="font-bold text-indigo-700">${formatCurrency(spouse1.income)}</span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Spouse 2 -->
                     ${mode === 'joint' && html`
                     <div>
-                        <h4 class="font-bold text-indigo-900 mb-2">${spouse2.name}</h4>
-                        <div class="text-sm text-slate-600 space-y-1">
-                            <p><span class="font-medium">DOB:</span> ${spouse2.dob || 'Not provided'}</p>
-                            <p><span class="font-medium">Email:</span> ${spouse2.email || 'Not provided'}</p>
-                            <p><span class="font-medium">Phone:</span> ${spouse2.phone || 'Not provided'}</p>
-                            <p><span class="font-medium">Income:</span> ${formatCurrency(spouse2.income)}</p>
+                        <h4 class="font-bold text-indigo-900 mb-2 text-sm">${spouse2.name}</h4>
+                        <div class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                            <div><span class="text-slate-500">DOB:</span> <span class="font-medium">${spouse2.dob || 'Not provided'}</span></div>
+                            <div><span class="text-slate-500">Smoker:</span> <span class="font-medium ${spouse2.smoker ? 'text-red-600' : 'text-green-600'}">${spouse2.smoker ? 'Yes' : 'No'}</span></div>
+                            <div><span class="text-slate-500">Email:</span> <span class="font-medium truncate">${spouse2.email || 'Not provided'}</span></div>
+                            <div><span class="text-slate-500">Phone:</span> <span class="font-medium">${spouse2.phone || 'Not provided'}</span></div>
+                            <div class="col-span-2 pt-1 border-t border-slate-200 mt-1">
+                                <span class="text-slate-500">Income:</span> <span class="font-bold text-indigo-700">${formatCurrency(spouse2.income)}</span>
+                            </div>
                         </div>
                     </div>
                     `}
                 </div>
 
                 ${children.length > 0 && html`
-                <div class="mb-6">
-                    <h4 class="font-bold text-slate-700 mb-2 text-sm">Children</h4>
-                    <table class="w-full text-sm text-left">
-                        <thead class="bg-slate-100 text-slate-600">
-                            <tr>
-                                <th class="p-2 rounded-l">Name</th>
-                                <th class="p-2">DOB</th>
-                                <th class="p-2 rounded-r">Est. Education Cost</th>
+                <div class="border-t border-slate-300 pt-3 mt-3">
+                    <h4 class="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wide">Children & Education</h4>
+                    <table class="w-full text-xs">
+                        <thead class="border-b border-slate-200">
+                            <tr class="text-slate-600">
+                                <th class="text-left py-1 font-semibold">Name</th>
+                                <th class="text-left py-1 font-semibold">DOB</th>
+                                <th class="text-right py-1 font-semibold">Est. Education Cost</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-slate-200">
+                        <tbody>
                             ${children.map(child => html`
-                                <tr>
-                                    <td class="p-2 font-medium">${child.name || 'Child'}</td>
-                                    <td class="p-2">${child.dob || 'Not provided'}</td>
-                                    <td class="p-2">${formatCurrency(child.cost)}</td>
+                                <tr class="border-b border-slate-100">
+                                    <td class="py-1 font-medium">${child.name || 'Child'}</td>
+                                    <td class="py-1 text-slate-600">${child.dob || 'Not provided'}</td>
+                                    <td class="py-1 text-right font-semibold">${formatCurrency(child.cost)}</td>
                                 </tr>
                             `)}
                         </tbody>
@@ -61,18 +70,60 @@ export const ReportStep = ({ mode, spouse1, spouse2, liabilities, children, asse
                 </div>
                 `}
 
-                <div class="grid grid-cols-2 gap-8 text-sm">
+                <div class="grid md:grid-cols-2 gap-4 border-t border-slate-300 pt-3 mt-3">
                     <div>
-                        <h4 class="font-bold text-slate-700 mb-1">Liabilities</h4>
-                        <p class="text-slate-600">Mortgage: ${formatCurrency(liabilities.mortgage)}</p>
-                        <p class="text-slate-600">Other Debts: ${formatCurrency(liabilities.debts)}</p>
-                        <p class="text-slate-600">Final Expenses: ${formatCurrency(liabilities.finalExpenses)}</p>
+                        <h4 class="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wide">Liabilities</h4>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Mortgage:</span>
+                                <span class="font-semibold">${formatCurrency(liabilities.mortgage)}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Other Debts:</span>
+                                <span class="font-semibold">${formatCurrency(liabilities.debts)}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Final Expenses:</span>
+                                <span class="font-semibold">${formatCurrency(liabilities.finalExpenses)}</span>
+                            </div>
+                        </div>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-700 mb-1">Assets</h4>
-                        <p class="text-slate-600">Savings: ${formatCurrency(assets.savings)}</p>
-                        <p class="text-slate-600">${spouse1.name} Insurance: ${formatCurrency(assets.existingInsurance1)}</p>
-                        ${mode === 'joint' && html`<p class="text-slate-600">${spouse2.name} Insurance: ${formatCurrency(assets.existingInsurance2)}</p>`}
+                        <h4 class="font-bold text-slate-700 mb-2 text-xs uppercase tracking-wide">Assets</h4>
+                        <div class="space-y-1 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Cash/Savings:</span>
+                                <span class="font-semibold">${formatCurrency(assets.cash)}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">Investments:</span>
+                                <span class="font-semibold">${formatCurrency(assets.investments)}</span>
+                            </div>
+                            
+                            ${assets.policies.filter(p => p.owner === 'spouse1').length > 0 && html`
+                                <div class="pt-1 mt-1 border-t border-slate-100">
+                                    <p class="text-slate-700 font-semibold mb-0.5">${spouse1.name} Insurance:</p>
+                                    ${assets.policies.filter(p => p.owner === 'spouse1').map(p => html`
+                                        <div class="flex justify-between pl-2">
+                                            <span class="text-slate-500">${p.type || 'Policy'}:</span>
+                                            <span class="font-medium">${formatCurrency(p.amount)}</span>
+                                        </div>
+                                    `)}
+                                </div>
+                            `}
+
+                            ${mode === 'joint' && assets.policies.filter(p => p.owner === 'spouse2').length > 0 && html`
+                                <div class="pt-1 mt-1 border-t border-slate-100">
+                                    <p class="text-slate-700 font-semibold mb-0.5">${spouse2.name} Insurance:</p>
+                                    ${assets.policies.filter(p => p.owner === 'spouse2').map(p => html`
+                                        <div class="flex justify-between pl-2">
+                                            <span class="text-slate-500">${p.type || 'Policy'}:</span>
+                                            <span class="font-medium">${formatCurrency(p.amount)}</span>
+                                        </div>
+                                    `)}
+                                </div>
+                            `}
+                        </div>
                     </div>
                 </div>
             </div>

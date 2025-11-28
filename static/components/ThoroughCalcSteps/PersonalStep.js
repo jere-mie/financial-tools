@@ -20,6 +20,16 @@ export const PersonalStep = ({ mode, spouse1, setSpouse1, spouse2, setSpouse2 })
                         <label class="block text-sm font-medium text-slate-700 mb-1">Date of Birth</label>
                         <input type="date" value=${spouse1.dob} onInput=${e => setSpouse1({ ...spouse1, dob: e.target.value })} class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none" />
                     </div>
+                    <div class="flex items-center pt-4">
+                        <input 
+                            type="checkbox" 
+                            id="spouse1-smoker"
+                            checked=${spouse1.smoker} 
+                            onChange=${e => setSpouse1({ ...spouse1, smoker: e.target.checked })} 
+                            class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-500 border-gray-300"
+                        />
+                        <label for="spouse1-smoker" class="ml-2 block text-sm font-medium text-slate-700">Smoker</label>
+                    </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
                         <input type="email" value=${spouse1.email} onInput=${e => setSpouse1({ ...spouse1, email: e.target.value })} class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="email@example.com" />
@@ -58,6 +68,16 @@ export const PersonalStep = ({ mode, spouse1, setSpouse1, spouse2, setSpouse2 })
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Date of Birth</label>
                         <input type="date" value=${spouse2.dob} onInput=${e => setSpouse2({ ...spouse2, dob: e.target.value })} class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 outline-none" />
+                    </div>
+                    <div class="flex items-center pt-4">
+                        <input 
+                            type="checkbox" 
+                            id="spouse2-smoker"
+                            checked=${spouse2.smoker} 
+                            onChange=${e => setSpouse2({ ...spouse2, smoker: e.target.checked })} 
+                            class="w-5 h-5 text-indigo-600 rounded focus:ring-indigo-500 border-gray-300"
+                        />
+                        <label for="spouse2-smoker" class="ml-2 block text-sm font-medium text-slate-700">Smoker</label>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
