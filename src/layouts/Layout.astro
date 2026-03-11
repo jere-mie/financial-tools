@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = 'Financial Tools | Privacy-Focused Finance Calculators for Canadians',
+	description = 'Free, privacy-focused financial calculators for residents of Ontario, Canada. All calculations run entirely in your browser. No data is ever sent to a server.',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en-CA">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- SEO -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Financial Tools" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:locale" content="en_CA" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+	</head>
+	<body class="min-h-screen bg-slate-50 font-body text-slate-800 antialiased flex flex-col">
+		<!-- Navigation -->
+		<nav class="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+			<div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
+				<a href={`${import.meta.env.BASE_URL}`} class="flex items-center gap-2 text-slate-900 no-underline transition-colors hover:text-amber-600">
+					<svg class="h-8 w-8" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="64" height="64" rx="14" fill="#0f172a"/>
+						<rect x="6" y="44" width="14" height="14" rx="2" fill="#f59e0b" opacity="0.35"/>
+						<rect x="25" y="28" width="14" height="30" rx="2" fill="#f59e0b" opacity="0.65"/>
+						<rect x="44" y="12" width="14" height="46" rx="2" fill="#f59e0b"/>
+					</svg>
+					<span class="font-display text-lg sm:text-xl">Financial Tools</span>
+				</a>
+				<a href={`${import.meta.env.BASE_URL}about/`} class="text-sm font-medium text-slate-600 transition-colors hover:text-amber-600">
+					About
+				</a>
+			</div>
+		</nav>
+
+		<!-- Main Content -->
+		<main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6 sm:py-12">
+			<slot />
+		</main>
+
+		<!-- Footer -->
+		<footer class="border-t border-slate-200 bg-white">
+			<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6">
+			<div class="flex flex-col gap-3 text-sm text-slate-500">
+				<div class="flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between sm:text-left">
+					<p>&copy; {new Date().getFullYear()} Jeremie Joseph Bornais. All calculations run locally in your browser.</p>
+					<p class="text-xs text-slate-400">For Ontario, Canada residents &middot; Not financial advice</p>
+				</div>
+				<div class="flex flex-col items-center gap-3 text-center text-xs text-slate-400 sm:flex-row sm:justify-between sm:text-left">
+					<p>
+						Built by <a href="https://jeremie.bornais.ca" target="_blank" rel="noopener noreferrer" class="underline transition-colors hover:text-amber-600">Jeremie Joseph Bornais</a>, software developer &amp; licensed life insurance agent in Ontario
+					</p>
+					<a href="https://github.com/jere-mie/financial-tools" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 underline transition-colors hover:text-amber-600">
+						<svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+						Open source on GitHub (MIT)
+					</a>
+				</div>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

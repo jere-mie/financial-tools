@@ -1,0 +1,52 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import LifeInsuranceCalculator from '../../../components/LifeInsuranceCalculator';
+---
+
+<Layout
+	title="Life Insurance Needs Calculator | Financial Tools"
+	description="Estimate how much life insurance coverage you may need. Free, private calculator for Ontario, Canada residents. All calculations run in your browser."
+>
+	<div class="mb-8">
+		<a
+			href={`${import.meta.env.BASE_URL}`}
+			class="inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-amber-600"
+		>
+			<svg class="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+			Back to all tools
+		</a>
+	</div>
+
+	<div class="mb-8 max-w-2xl">
+		<span class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold tracking-wide text-amber-700 uppercase">
+			Insurance
+		</span>
+		<h1 class="font-display text-3xl leading-tight text-slate-900 sm:text-4xl">
+			Life Insurance Needs Calculator
+		</h1>
+		<p class="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
+			Get a quick estimate of how much life insurance coverage you may need based on your income, debts, dependants, and financial goals.
+		</p>
+	</div>
+
+	<LifeInsuranceCalculator client:load />
+
+	<!-- Disclaimer -->
+	<div class="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+		<div class="flex items-start gap-3">
+			<svg class="mt-0.5 h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" /></svg>
+			<div class="text-xs leading-relaxed text-slate-500 sm:text-sm">
+				<p class="font-semibold text-slate-600">Disclaimer</p>
+				<p class="mt-1">
+					This calculator is provided for <strong>educational and informational purposes only</strong> and does not constitute financial, insurance, or professional advice. Results are rough estimates based on simplified assumptions and may not reflect your individual circumstances. Life insurance needs vary significantly based on personal factors not captured by this tool.
+				</p>
+				<p class="mt-2">
+					This tool was created by <a href="/about/" class="font-medium text-slate-600 underline hover:text-amber-700">Jeremie Joseph Bornais</a>, a licensed life insurance agent in Ontario, Canada. While Jeremie is available for personalized service, this tool is not a substitute for individual advice. Please consult Jeremie directly or another qualified professional before making any insurance decisions.
+				</p>
+				<p class="mt-2">
+					<strong>Privacy:</strong> All calculations are performed entirely in your browser. No personal or financial data is collected, stored, or transmitted to any server.
+				</p>
+			</div>
+		</div>
+	</div>
+</Layout>
