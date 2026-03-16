@@ -91,7 +91,7 @@ function calcLTT(price: number): number {
 }
 
 /**
- * Toronto Municipal LTT — uses the same base brackets as the provincial LTT
+ * Toronto Municipal LTT - uses the same base brackets as the provincial LTT
  * plus additional "luxury" brackets introduced in 2024 for high-value properties.
  */
 function calcTorontoLTT(price: number): number {
@@ -225,7 +225,7 @@ export default function MortgageCalculator() {
   const loanBeforeCmhc = Math.max(0, homePrice - downPaymentDollar);
   const cmhcRate = isUninsurable ? 0 : getCmhcRate(downPaymentPercent);
   const cmhcAmount = Math.round(loanBeforeCmhc * cmhcRate);
-  const pstOnCmhc = Math.round(cmhcAmount * 0.08); // 8% Ontario PST — paid upfront, NOT added to mortgage
+  const pstOnCmhc = Math.round(cmhcAmount * 0.08); // 8% Ontario PST - paid upfront, NOT added to mortgage
   const principal = loanBeforeCmhc + cmhcAmount;
 
   const paymentsPerYear = frequency === 'monthly' ? 12 : 26;
@@ -422,7 +422,7 @@ export default function MortgageCalculator() {
             )}
             {isHighRatio && !isBelowMinimum && (
               <p className="mt-2 rounded-lg bg-amber-50 px-3 py-1.5 text-xs text-amber-700">
-                High-ratio mortgage — CMHC insurance required ({(cmhcRate * 100).toFixed(2)}%
+                High-ratio mortgage - CMHC insurance required ({(cmhcRate * 100).toFixed(2)}%
                 premium on loan). Ontario PST of 8% on the premium is due upfront at closing.
               </p>
             )}
@@ -575,7 +575,7 @@ export default function MortgageCalculator() {
                     <div>
                       <p className="text-sm font-semibold text-amber-800">CMHC Insurance</p>
                       <p className="text-xs text-amber-600">
-                        {(cmhcRate * 100).toFixed(2)}% of {fmt(loanBeforeCmhc)} loan — added to mortgage
+                        {(cmhcRate * 100).toFixed(2)}% of {fmt(loanBeforeCmhc)} loan - added to mortgage
                       </p>
                     </div>
                     <p className="text-base font-bold text-amber-700">{fmt(cmhcAmount)}</p>
@@ -583,7 +583,7 @@ export default function MortgageCalculator() {
                   <div className="mt-2 flex items-center justify-between border-t border-amber-200 pt-2">
                     <div>
                       <p className="text-sm font-semibold text-amber-800">Ontario PST on CMHC</p>
-                      <p className="text-xs text-amber-600">8% of premium — paid upfront at closing</p>
+                      <p className="text-xs text-amber-600">8% of premium - paid upfront at closing</p>
                     </div>
                     <p className="text-base font-bold text-amber-700">{fmt(pstOnCmhc)}</p>
                   </div>
@@ -593,7 +593,7 @@ export default function MortgageCalculator() {
                   <div>
                     <p className="text-sm font-semibold text-emerald-800">CMHC Insurance</p>
                     <p className="text-xs text-emerald-600">
-                      {isUninsurable ? 'Not available — homes priced at $1M+ are uninsurable' : 'Not required — down payment ≥ 20%'}
+                      {isUninsurable ? 'Not available - homes priced at $1M+ are uninsurable' : 'Not required - down payment ≥ 20%'}
                     </p>
                   </div>
                   <p className="text-base font-bold text-emerald-700">$0</p>
