@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import MortgageCalculator from '../../../components/MortgageCalculator';
+---
+
+<Layout
+	title="Ontario Mortgage Calculator | Financial Tools"
+	description="Calculate your Canadian mortgage payment with semi-annual compounding, CMHC insurance, and Ontario Land Transfer Tax. Free, private mortgage calculator for Ontario residents."
+>
+	<div class="mb-8">
+		<a
+			href={`${import.meta.env.BASE_URL}`}
+			class="inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-amber-600"
+		>
+			<svg class="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+			</svg>
+			Back to all tools
+		</a>
+	</div>
+
+	<div class="mb-8 max-w-2xl">
+		<span class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold tracking-wide text-amber-700 uppercase">
+			Mortgage
+		</span>
+		<h1 class="font-display text-3xl leading-tight text-slate-900 sm:text-4xl">
+			Ontario Mortgage Calculator
+		</h1>
+		<p class="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
+			Built for the Canadian market. Uses the correct semi-annual compounding formula required by Canadian law, calculates CMHC insurance premiums, and computes Ontario (and Toronto) Land Transfer Tax with first-time buyer rebates.
+		</p>
+	</div>
+
+	<MortgageCalculator client:load />
+
+	<!-- Disclaimer -->
+	<div class="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-5 sm:p-6">
+		<div class="flex items-start gap-3">
+			<svg class="mt-0.5 h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+			</svg>
+			<div class="text-xs leading-relaxed text-slate-500 sm:text-sm">
+				<p class="font-semibold text-slate-600">Disclaimer</p>
+				<p class="mt-1">
+					This calculator is provided for <strong>educational and informational purposes only</strong> and does not constitute financial, legal, or professional advice. Results are estimates based on the inputs provided and may not reflect your actual mortgage terms, lender fees, property tax, home insurance, or other costs associated with purchasing a home.
+				</p>
+				<p class="mt-2">
+					Canadian mortgage interest rates are compounded semi-annually as required by the <em>Interest Act (Canada)</em>. This tool applies the standard Canadian interest conversion formula. CMHC insurance premiums reflect rates current as of early 2026 and are subject to change. Ontario and Toronto Land Transfer Tax figures are based on publicly published marginal rate schedules and first-time buyer rebate amounts; always verify with the Ontario Ministry of Finance or a real estate lawyer before closing.
+				</p>
+				<p class="mt-2">
+					The "accelerated bi-weekly" option assumes the same payment amount each period with no lump-sum prepayments or rate changes. Actual amortization savings may vary. Please consult a licensed mortgage broker or financial professional before making any real estate or financing decisions.
+				</p>
+				<p class="mt-2">
+					<strong>Privacy:</strong> All calculations are performed entirely in your browser. No personal or financial data is collected, stored, or transmitted to any server.
+				</p>
+			</div>
+		</div>
+	</div>
+</Layout>
