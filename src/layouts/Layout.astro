@@ -45,6 +45,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+
+		<!-- Per-page head injection -->
+		<slot name="head" />
 	</head>
 	<body class="min-h-screen bg-slate-50 font-body text-slate-800 antialiased flex flex-col">
 		<!-- Navigation -->

@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import FinancialDiscoveryWizard from '../../../components/FinancialDiscoveryWizard';
+---
+
+<Layout
+	title="Financial Discovery Snapshot | Financial Tools"
+	description="A comprehensive, step-by-step financial discovery questionnaire for Ontario residents. Organize your household profile, assets, liabilities, insurance, and income to generate a portable snapshot - entirely in your browser."
+>
+	<link
+		slot="head"
+		href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+		rel="stylesheet"
+	/>
+
+	<div class="mb-8 no-print">
+		<a
+			href={`${import.meta.env.BASE_URL}`}
+			class="inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-amber-600"
+		>
+			<svg class="mr-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+			</svg>
+			Back to all tools
+		</a>
+	</div>
+
+	<div class="mb-8 max-w-2xl no-print">
+		<span class="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold tracking-wide text-amber-700 uppercase">
+			Financial Planning
+		</span>
+		<h1 class="font-display text-3xl leading-tight text-slate-900 sm:text-4xl">
+			Financial Discovery Snapshot
+		</h1>
+		<p class="mt-3 text-base leading-relaxed text-slate-600 sm:text-lg">
+			A step-by-step questionnaire tailored for Ontario residents. Walk through your household profile, assets, liabilities, insurance coverage, and income - then export a professional snapshot PDF to bring to your financial professional.
+		</p>
+	</div>
+
+	<FinancialDiscoveryWizard client:load />
+
+	<div class="mt-12 rounded-xl border border-slate-200 bg-slate-50 p-5 sm:p-6 no-print">
+		<div class="flex items-start gap-3">
+			<svg class="mt-0.5 h-5 w-5 shrink-0 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
+			</svg>
+			<div class="text-xs leading-relaxed text-slate-500 sm:text-sm">
+				<p class="font-semibold text-slate-600">Disclaimer</p>
+				<p class="mt-1">
+					This tool is provided for <strong>educational and informational purposes only</strong> for residents of Ontario, Canada. It does not constitute financial, legal, or tax advice, and no fiduciary relationship is created by its use. Results are estimates based solely on the information you provide and may not reflect your complete financial situation.
+				</p>
+				<p class="mt-2">
+					Canadian-specific figures (TFSA contribution room, CESG eligibility, RRSP deduction limits) vary by individual. Always verify with the <a href="https://www.canada.ca/en/revenue-agency.html" target="_blank" rel="noopener noreferrer" class="underline hover:text-amber-600">Canada Revenue Agency</a> or a qualified financial professional. Consult a licensed financial planner, tax advisor, or legal counsel before making any financial decisions.
+				</p>
+				<p class="mt-2">
+					<strong>Privacy:</strong> All data you enter is processed entirely in your browser. Nothing is sent to any server, stored externally, or shared with third parties.
+				</p>
+			</div>
+		</div>
+	</div>
+</Layout>
